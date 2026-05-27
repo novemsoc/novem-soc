@@ -487,6 +487,108 @@
       globalErr.classList.add('visible');
     }
   });
+<script type="module">
+  import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+  const SUPABASE_URL = "https://wqtrxndnywdlhtsksaem.supabase.co";
+
+  // YOU MUST PASTE YOUR ANON PUBLIC KEY BELOW
+  const SUPABASE_ANON_KEY = "PASTE_ANON_KEY_HERE";
+
+  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const form = document.getElementById('waitlist-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const globalErr = document.getElementById('global-err');
+  const container = document.getElementById('form-container');
+
+  function validateEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+  }
+
+  function validateInstagram(v) {
+    const c = v.trim().replace(/^@/, '');
+    return c.length > 0 && c.length <= 30 && /^[a-zA-Z0-9._]+$/.test(c);
+  }
+
+  function showError(id, show) {
+    const input = document.getElementById(id);
+    const err = document.getElementById('err-' + id);
+
+    if (show) {
+      input.classList.add('error');
+      err.classList.add('visible');
+    } else {
+      input.classList.remove('error');
+      err.classList.remove('visible');
+    }
+  }
+
+  ['full_name', 'email', 'instagram'].forEach(id => {
+    document.getElementById(id).addEventListener('input', () => {
+      showError(id, false);
+    });
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    globalErr.classList.remove('visible');
+
+    const fullName = document.getElementById('full_name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const instagram = document.getElementById('instagram').value.trim().replace(/^@/, '');
+
+    let valid = true;
+
+    if (fullName.length < 2) {
+      showError('full_name', true);
+      valid = false;
+    }
+
+    if (!validateEmail(email)) {
+      showError('email', true);
+      valid = false;
+    }
+
+    if (!validateInstagram(instagram)) {
+      showError('instagram', true);
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    const { error } = await supabase
+      .from('waitlist')
+      .insert([
+        {
+          full_name: fullName,
+          email: email,
+          instagram: instagram
+        }
+      ]);
+
+    if (error) {
+      console.error(error);
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Request Access';
+
+      globalErr.classList.add('visible');
+      return;
+    }
+
+    container.innerHTML = `
+      <div class="success-state">
+        <div class="bar"></div>
+        <h3>You're on the list</h3>
+        <p>We'll be in touch with early access details. Follow us for updates.</p>
+      </div>
+    `;
+  });
 </script>
 
 </body>
