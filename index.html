@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="NOVEM SOC — Taster Session. Paddington Recreation Ground. Limited spaces.">
-<meta property="og:title" content="NOVEM — Taster Session">
-<meta property="og:description" content="Calisthenics, track and boxing. A professionally coached taster session. Reserve your spot.">
+<meta name="description" content="NOVEM SOC — Register Your Interest. Premium social performance club.">
+<meta property="og:title" content="NOVEM — Register Your Interest">
+<meta property="og:description" content="Calisthenics, track and boxing. A premium social performance club. Register your interest.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://novemsoc.com/">
 <meta property="og:image" content="https://novemsoc.com/og-image.png">
@@ -13,7 +13,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://novemsoc.com/og-image.png">
-<title>NOVEM — Taster Session</title>
+<title>NOVEM — Register Your Interest</title>
 
 <link rel="icon" type="image/svg+xml" href="/novem-logo.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
@@ -116,16 +116,16 @@
     opacity: 0; animation: fadeUp 1s ease-out 0.5s forwards;
   }
 
-  .event-meta {
-    margin-top: 32px; display: flex; gap: 28px; flex-wrap: wrap; justify-content: center;
+  .pillars {
+    margin-top: 36px; display: flex; gap: 32px; flex-wrap: wrap; justify-content: center;
     opacity: 0; animation: fadeUp 1s ease-out 0.6s forwards;
   }
-  .event-meta .meta-item { text-align: center; }
-  .event-meta .meta-label {
+  .pillar { text-align: center; }
+  .pillar .pillar-label {
     font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: #B5AFA3;
     margin-bottom: 6px;
   }
-  .event-meta .meta-value {
+  .pillar .pillar-value {
     font-family: 'Cormorant Garamond', serif;
     font-size: 16px; color: #33302A;
   }
@@ -194,6 +194,10 @@
   }
   .field input.error + .err-msg,
   .field .err-msg.visible { display: block; }
+  .field .handle-hint {
+    margin-top: 6px; font-size: 10px; color: #B5AFA3;
+    letter-spacing: 0.02em;
+  }
   /* Honeypot */
   .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
 
@@ -294,7 +298,7 @@
     nav { padding: 18px 22px; }
     .hero { padding: 110px 22px 60px; }
     .signup, .brand-stmt { padding-left: 22px; padding-right: 22px; }
-    .event-meta { gap: 20px; }
+    .pillars { gap: 20px; }
   }
 </style>
 </head>
@@ -305,7 +309,7 @@
 <!-- ── NAV ── -->
 <nav>
   <div class="nav-brand">Novem <span class="soc">Soc</span></div>
-  <a href="#signup" class="nav-join">Reserve</a>
+  <a href="#signup" class="nav-join">Register</a>
 </nav>
 
 <!-- ── HERO ── -->
@@ -314,39 +318,35 @@
   <div class="hero-orb2" aria-hidden="true"></div>
   <div class="hero-line" aria-hidden="true"></div>
 
-  <div class="hero-eyebrow">Taster Session · Paddington Recreation Ground</div>
+  <div class="hero-eyebrow">Premium Social Performance Club</div>
 
   <h1 class="headline">
-    A taste of <em>NOVEM</em>
+    Sessions <em> Coming</em>
   </h1>
 
   <p class="subline">
-    A professionally coached session designed for athletic performance —
+    A professionally coached performance club built around
     calisthenics, track and boxing. Train. Connect. Elevate.
-    Open to all levels. Spaces are limited.
+    Register your interest to be first in line.
   </p>
 
-  <div class="event-meta">
-    <div class="meta-item">
-      <div class="meta-label">Date</div>
-      <div class="meta-value">Sat 1 August</div>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-label">Discipline</div>
+      <div class="pillar-value">Calisthenics</div>
     </div>
-    <div class="meta-item">
-      <div class="meta-label">Time</div>
-      <div class="meta-value">12:00 Noon</div>
+    <div class="pillar">
+      <div class="pillar-label">Discipline</div>
+      <div class="pillar-value">Track</div>
     </div>
-    <div class="meta-item">
-      <div class="meta-label">Location</div>
-      <div class="meta-value">Paddington Rec Ground</div>
-    </div>
-    <div class="meta-item">
-      <div class="meta-label">Format</div>
-      <div class="meta-value">Calisthenics · Track · Boxing</div>
+    <div class="pillar">
+      <div class="pillar-label">Discipline</div>
+      <div class="pillar-value">Boxing</div>
     </div>
   </div>
 
-  <a href="#signup" class="cta-arrow" aria-label="Scroll to signup">
-    <div class="label">Reserve Your Spot</div>
+  <a href="#signup" class="cta-arrow" aria-label="Scroll to register">
+    <div class="label">Register Your Interest</div>
     <div class="arrow">
       <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
         <path d="M8 0v22m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="1"/>
@@ -362,8 +362,8 @@
   <div class="form-wrap">
     <div class="form-header">
       <div class="bar"></div>
-      <h2>Reserve your spot</h2>
-      <p class="tag">Taster session · Limited spaces</p>
+      <h2>Register your interest</h2>
+      <p class="tag">Be first to know · Limited founding spots</p>
     </div>
 
     <div id="form-container">
@@ -382,9 +382,15 @@
           <div class="err-msg" id="err-phone">Please enter a valid phone number</div>
         </div>
 
-        <button type="submit" class="submit-btn" id="submit-btn">Reserve My Spot</button>
+        <div class="field">
+          <input type="text" id="social_handle" name="social_handle" placeholder="@yourusername" autocomplete="off" required>
+          <div class="err-msg" id="err-social_handle">Please enter your social media handle</div>
+          <div class="handle-hint">Instagram, TikTok or X</div>
+        </div>
 
-        <p class="form-footnote">We'll confirm your spot by text ahead of the session.</p>
+        <button type="submit" class="submit-btn" id="submit-btn">Register Interest</button>
+
+        <p class="form-footnote">We'll reach out when spots open up.</p>
 
         <p class="global-err" id="global-err">Something went wrong. Please try again.</p>
       </form>
@@ -397,8 +403,8 @@
   <div class="brand-stmt-inner">
     <div class="top-bar"></div>
     <p class="statement">
-      More than a session.<br>
-      <em>An introduction.</em>
+      More than training.<br>
+      <em>A standard.</em>
     </p>
     <p class="tags">Train · Connect · Elevate</p>
   </div>
@@ -431,13 +437,11 @@
 <script type="module">
   import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-  // Supabase connection for NOVEM SOC event signups.
   const SUPABASE_URL = "https://wqtrxndnywdlhtsksaem.supabase.co";
   const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_d0ZrlGhYxsyxch8cwcd5dQ_D5QPATkp";
 
   const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
-  // ── Form validation + submission ──
   const form = document.getElementById('signup-form');
   const submitBtn = document.getElementById('submit-btn');
   const globalErr = document.getElementById('global-err');
@@ -448,10 +452,15 @@
     return digits.length >= 9 && digits.length <= 15;
   }
 
+  function validateHandle(v) {
+    // Accept @username or plain username, 2+ chars
+    const cleaned = v.startsWith('@') ? v.slice(1) : v;
+    return cleaned.length >= 2;
+  }
+
   function showError(id, show) {
     const input = document.getElementById(id);
     const err = document.getElementById('err-' + id);
-
     if (show) {
       input.classList.add('error');
       err.classList.add('visible');
@@ -462,14 +471,14 @@
   }
 
   // Live clear errors as user types
-  ['full_name', 'phone'].forEach(id => {
+  ['full_name', 'phone', 'social_handle'].forEach(id => {
     document.getElementById(id).addEventListener('input', () => showError(id, false));
   });
 
-  async function saveSignup(fullName, phone) {
+  async function saveSignup(fullName, phone, socialHandle) {
     return await supabase
       .from('event_signups')
-      .insert([{ full_name: fullName, phone }]);
+      .insert([{ full_name: fullName, phone, social_handle: socialHandle }]);
   }
 
   form.addEventListener('submit', async (e) => {
@@ -478,32 +487,32 @@
 
     const fullName = document.getElementById('full_name').value.trim();
     const phone = document.getElementById('phone').value.trim();
+    const socialHandle = document.getElementById('social_handle').value.trim();
 
     let valid = true;
     if (fullName.length < 2) { showError('full_name', true); valid = false; }
     if (!validatePhone(phone)) { showError('phone', true); valid = false; }
+    if (!validateHandle(socialHandle)) { showError('social_handle', true); valid = false; }
     if (!valid) return;
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting...';
 
     try {
-      const { error } = await saveSignup(fullName, phone);
-
+      const { error } = await saveSignup(fullName, phone, socialHandle);
       if (error) throw error;
 
-      // Success — replace form with success message
       container.innerHTML = `
         <div class="success-state">
           <div class="bar"></div>
-          <h3>You're in</h3>
-          <p>We'll text you to confirm your spot and share the meeting point ahead of the session.</p>
+          <h3>You're on the list</h3>
+          <p>We'll be in touch when it's time. Keep an eye on your phone.</p>
         </div>
       `;
     } catch (err) {
       console.error(err);
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Reserve My Spot';
+      submitBtn.textContent = 'Register Interest';
       globalErr.classList.add('visible');
     }
   });
